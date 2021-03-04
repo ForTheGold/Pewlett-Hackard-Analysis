@@ -1,20 +1,8 @@
--- Note: This is exactly what was asked for, but I believe it is incorrect
 SELECT e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date
 INTO retirement_titles
 FROM employees AS e
 JOIN titles AS t
 ON e.emp_no = t.emp_no
-WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
-ORDER BY e.emp_no;
-
--- This is a slight modification to what was asked for that produces the desired result
-SELECT e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date
-INTO retirement_titles
-FROM current_emp AS ce
-JOIN employees AS e
-ON ce.emp_no = e.emp_no
-JOIN titles AS t
-ON ce.emp_no = t.emp_no
 WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 ORDER BY e.emp_no;
 
